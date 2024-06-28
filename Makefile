@@ -4,5 +4,5 @@ install:
 brain-games: 
 	node bin/brain-games.js
 
-d: 
-	console.log('s')
+publish:
+	npm publish --dry-run
