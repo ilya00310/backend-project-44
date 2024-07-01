@@ -8,4 +8,4 @@ install:
 		npm publish --dry-run
 
  lint:
-		npx eslint.config.js .
+		npx eslint .
