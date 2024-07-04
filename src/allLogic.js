@@ -9,6 +9,7 @@ export default (formulaExpression, correctAnswer, condition) => {
     const expression = formulaExpression();
     const checkCorrect = correctAnswer(expression); 
     const question = readlineSync.question(`Question: ${expression}\nYour answer: `);
+    console.log(checkCorrect);
     if (question === 'yes' && checkCorrect === true) {
       console.log('Correct!');
     } else if (question === 'no' && checkCorrect === true) {
