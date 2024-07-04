@@ -17,21 +17,31 @@ const randomExpression = () => {
   }
 };
 
-const randomExpressionAnswer = (a) => {
-  for (let i = 0; i < a.length; i += 1) {
-    if (a[i - 1] === ' ' && a[i + 1] === ' ') {
-      const one = +a.slice(0, i - 1);
-      const two = +a.slice(i + 1, a.length);
+const conditionIf = (userResponse,name,numberExpression) => {
+const randomExpressionAnswer = (str) => {
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i - 1] === ' ' && str[i + 1] === ' ') {
+      const one = +str.slice(0, i - 1);
+      const two = +str.slice(i + 1, str.length);
       console.log(one, two, typeof(one), typeof(two))
-      if (a[i] === '*') {
+      if (str[i] === '*') {
         return one * two;
-      } if (a[i] === '+') {
+      } if (str[i] === '+') {
         return one + two;
-      } if (a[i] === '-') {
+      } if (str[i] === '-') {
         return one - two;
       }
     }
   }
 };
+const answer = randomExpressionAnswer(numberExpression);
+if (answer ===  +userResponse){
+    console.log('Correct!');
+}else {
+    console.log('answer =',answer)
+    console.log(`${userResponse} is wrong answer ;(. Correct answer was 'yes'.\nLet's try again,${name}`);
+    return false
+}
+}
 // console.log(randomExpressionAnswer('87 * 9'))
-allLogic(randomExpression, randomExpressionAnswer, 'What is the result of the expression?');
+allLogic(randomExpression,'What is the result of the expression?',conditionIf );
