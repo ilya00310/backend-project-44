@@ -24,6 +24,7 @@ export const getAnswer = (userResponse, name, numberExpression) => {
         return i;
       }
     }
+    return false;
   };
   const answer = randomExpressionAnswer(numberExpression);
   if (+userResponse === answer) {

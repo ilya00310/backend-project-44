@@ -10,6 +10,7 @@ export default () => {
     } if (sign === 3) {
       return `${one} * ${two}`;
     }
+    return false;
   };
   return randomExpression;
 };
@@ -29,6 +30,7 @@ export const conditionIf = (userResponse, name, numberExpression) => {
         }
       }
     }
+    return false;
   };
   const answer = randomExpressionAnswer(numberExpression);
   if (answer === +userResponse) {

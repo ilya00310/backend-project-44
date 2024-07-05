@@ -20,24 +20,24 @@ export const getAnswer = (userResponse, name, numberExpression) => {
   const answerProgression = (str) => {
     let one;
     let two;
-    str = str.split(' ');
+    const strSplit = str.split(' ');
     for (let i = 0; i < str.length; i += 1) {
-      if (str[1] === '...') {
-        one = +str[2];
-        two = +str[3];
-        return one - (two - one) ;
-      } if (str[str.length - 1] === '...') {
-        one = +str[str.length - 3];
-        two = +str[str.length - 2];
+      if (strSplit[1] === '...') {
+        one = +strSplit[2];
+        two = +strSplit[3];
+        return one - (two - one);
+      } if (strSplit[strSplit.length - 1] === '...') {
+        one = +strSplit[strSplit.length - 3];
+        two = +strSplit[strSplit.length - 2];
         return two + (two - one);
-      } if (str[i + 1] === '...') {
-        one = +str[i];
-      } else if (str[i - 1] === '...') {
-        two = +str[i];
+      } if (strSplit[i + 1] === '...') {
+        one = +strSplit[i];
+      } else if (strSplit[i - 1] === '...') {
+        two = +strSplit[i];
         return one + (two - one) / 2;
       }
     }
-  
+    return false;
   };
   const answer = answerProgression(numberExpression);
   if (+userResponse === answer) {
