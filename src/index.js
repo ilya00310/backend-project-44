@@ -12,5 +12,5 @@ export default (formulaExpression, condition, checkForDefault) => {
       return;
     }
   }
-  console.log(`Congratulations,${Name}!`);
+  console.log(`Congratulations, ${Name}!`);
 };
