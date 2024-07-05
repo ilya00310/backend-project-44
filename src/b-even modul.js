@@ -11,5 +11,4 @@ export const myConditionIf = (userResponse, name, number) => {
     console.log(`${userResponse} is wrong answer ;(. Correct answer was 'no'.\nLet's try again,${name}!`);
     return false;
   }
-  return false;
 };
