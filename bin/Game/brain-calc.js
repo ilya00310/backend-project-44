@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import allLogic from '../../src/index.js';
-import myRandomExpression, { conditionIf } from '../../src/b-c modul.js';
+import myRandomExpression, { conditionIf } from '../../src/b-clac modul.js';
 
 console.log('brain-calc.js\n');
 
