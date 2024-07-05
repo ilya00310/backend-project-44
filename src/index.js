@@ -8,11 +8,9 @@ export default (formulaExpression, condition, checkForDefault) => {
   for (let i = 0; i < 3; i += 1) {
     const expression = formulaExpression();
     const question = readlineSync.question(`Question: ${expression}\nYour answer: `);
-    console.log(expression);
-     if (checkForDefault(question,Name,expression) === false) {
-        return
-     }
+    if (checkForDefault(question, Name, expression) === false) {
+      return;
     }
-    console.log(`Congratulations,${Name}`);
-
-}
+  }
+  console.log(`Congratulations,${Name}`);
+};
