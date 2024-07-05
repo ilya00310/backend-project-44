@@ -23,17 +23,17 @@ export const getAnswer = (userResponse, name, numberExpression) => {
     let two;
     const strSplit = str.split(' ');
     for (let i = 0; i < str.length; i += 1) {
-      if (strSplit[1] === '..') {
-        one = +strSplit[2];
-        two = +strSplit[3];
+      if (strSplit[0] === '..') {
+        one = +strSplit[1];
+        two = +strSplit[2];
         return one - (two - one);
-      } if (strSplit[strSplit.length - 1] === '..') {
-        one = +strSplit[strSplit.length - 3];
-        two = +strSplit[strSplit.length - 2];
+      } if (strSplit[strSplit.length - 2] === '..') {
+        one = +strSplit[strSplit.length - 4];
+        two = +strSplit[strSplit.length - 3];
         return two + (two - one);
       } if (strSplit[i + 1] === '..') {
         one = +strSplit[i];
-      } else if (strSplit[i - 1] === '..') {
+      } if (strSplit[i - 1] === '..') {
         two = +strSplit[i];
         return one + (two - one) / 2;
       }
