@@ -17,23 +17,34 @@ export default () => {
   return progression;
 };
 export const getAnswer = (userResponse, name, numberExpression) => {
-  let differenceWithoutNumbers;
-  let quantitySign;
-  const oneNumber = '';
-  const twoNumber = '';
   const answerProgression = (str) => {
+    let one;
+    let two;
+    str = str.split(' ');
     for (let i = 0; i < str.length; i += 1) {
-      if (i !== ' ') {
-        twoNumber ='';
-        twoNumber + str[i];
-      } else if (i === ' ') {
-        oneNumber = +twoNumber;
-        twoNumber = +twoNumber
-
-      }
-      if (str[i + 1] === '...') {
-
+      if (str[1] === '...') {
+        one = +str[2];
+        two = +str[3];
+        return one - (two - one) ;
+      } if (str[str.length - 1] === '...') {
+        one = +str[str.length - 3];
+        two = +str[str.length - 2];
+        return two + (two - one);
+      } if (str[i + 1] === '...') {
+        one = +str[i];
+      } else if (str[i - 1] === '...') {
+        two = +str[i];
+        return one + (two - one) / 2;
       }
     }
+  
   };
+  const answer = answerProgression(numberExpression);
+  if (+userResponse === answer) {
+    console.log('Corrct!');
+  } else {
+    console.log(`${userResponse} is wrong answer ;(. Correct answer was ${answer}.\nLet's try again,${name}`);
+    return false;
+  }
+  return getAnswer;
 };
