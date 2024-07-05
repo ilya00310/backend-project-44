@@ -8,12 +8,13 @@ export default () => {
   for (let i = 0; i < lengthOfProgression; i += 1) {
     if (i === indicateSkip - 1) {
       initalNumber += intervalPass;
-      progression += ' ..';
+      progression += '.. ';
     } else {
       initalNumber += intervalPass;
-      progression += ` ${initalNumber}`;
+      progression += `${initalNumber} `;
     }
   }
+
   return progression;
 };
 export const getAnswer = (userResponse, name, numberExpression) => {
