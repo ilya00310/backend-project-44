@@ -36,7 +36,7 @@ export const conditionIf = (userResponse, name, numberExpression) => {
   if (answer === +userResponse) {
     console.log('Correct!');
   } else {
-    console.log(`${userResponse} is wrong answer ;(. Correct answer was ${answer}.\nLet's try again,${name}`);
+    console.log(`${userResponse} is wrong answer ;(. Correct answer was ${answer}.\nLet's try again, ${name}!`);
     return false;
   }
   return conditionIf;
