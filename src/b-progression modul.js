@@ -8,7 +8,7 @@ export default () => {
   for (let i = 0; i < lengthOfProgression; i += 1) {
     if (i === indicateSkip - 1) {
       initalNumber += intervalPass;
-      progression += ' ...';
+      progression += ' ..';
     } else {
       initalNumber += intervalPass;
       progression += ` ${initalNumber}`;
@@ -22,17 +22,17 @@ export const getAnswer = (userResponse, name, numberExpression) => {
     let two;
     const strSplit = str.split(' ');
     for (let i = 0; i < str.length; i += 1) {
-      if (strSplit[1] === '...') {
+      if (strSplit[1] === '..') {
         one = +strSplit[2];
         two = +strSplit[3];
         return one - (two - one);
-      } if (strSplit[strSplit.length - 1] === '...') {
+      } if (strSplit[strSplit.length - 1] === '..') {
         one = +strSplit[strSplit.length - 3];
         two = +strSplit[strSplit.length - 2];
         return two + (two - one);
-      } if (strSplit[i + 1] === '...') {
+      } if (strSplit[i + 1] === '..') {
         one = +strSplit[i];
-      } else if (strSplit[i - 1] === '...') {
+      } else if (strSplit[i - 1] === '..') {
         two = +strSplit[i];
         return one + (two - one) / 2;
       }
