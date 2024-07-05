@@ -6,6 +6,6 @@ export const myConditionIf = (userResponse, name, number) => {
   if (userResponse === 'no' && number % 2 !== 0) {
     return console.log('Correct!');
   }
-  console.log(`${userResponse} is wrong answer ;(. Correct answer was 'no'.\nLet's try again,${name}!`);
+  console.log(`${userResponse} is wrong answer ;(. Correct answer was 'no'.\nLet's try again, ${name}!`);
   return false;
 };

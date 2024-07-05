@@ -43,7 +43,7 @@ export const getAnswer = (userResponse, name, numberExpression) => {
   if (+userResponse === answer) {
     console.log('Corrct!');
   } else {
-    console.log(`${userResponse} is wrong answer ;(. Correct answer was ${answer}.\nLet's try again,${name}`);
+    console.log(`${userResponse} is wrong answer ;(. Correct answer was ${answer}.\nLet's try again, ${name}!`);
     return false;
   }
   return getAnswer;
