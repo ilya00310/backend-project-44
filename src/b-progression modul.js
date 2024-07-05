@@ -1,7 +1,7 @@
 export default () => {
   const lengthOfProgression = Math.floor(Math.random() * (10 - 5 + 1)) + 5;
   const indicateSkip = Math.floor(Math.random() * (lengthOfProgression - 1 + 1)) + 1;
-  const intervalPass = Math.floor(Math.random() * (10 - 5 + 1)) + 5;
+  const intervalPass = Math.floor(Math.random() * (10 - 6 + 1)) + 6;
   let progression = '';
   let initalNumber = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
 
