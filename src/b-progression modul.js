@@ -4,16 +4,16 @@ export default () => {
   const lengthOfProgression = getrandomNumberInRange(5, 10);
   const indicateSkip = getrandomNumberInRange(1, lengthOfProgression) - 1;
   const intervalPass = getrandomNumberInRange(10, 6);
-  let progression = '';
+  const progression = [];
   let initalNumber = getrandomNumberInRange(1, 100);
 
   for (let i = 0; i < lengthOfProgression; i += 1) {
     if (i === indicateSkip) {
       initalNumber += intervalPass;
-      progression += '.. ';
+      progression.push('.. ');
     } else {
       initalNumber += intervalPass;
-      progression += `${initalNumber} `;
+      progression.push(initalNumber);
     }
   }
 
