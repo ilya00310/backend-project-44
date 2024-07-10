@@ -1,5 +1,5 @@
 export default () => Math.floor(Math.random() * (100 - 1 + 1)) + 1;
-export const myConditionIf = (userResponse, name, number) => {
+export const сheckCondition = (userResponse, name, number) => {
   if (userResponse === 'yes' && number % 2 === 0) {
     return console.log('Correct!');
   }

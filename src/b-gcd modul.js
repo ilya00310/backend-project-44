@@ -3,8 +3,8 @@ export default () => {
   const two = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
   return `${one} ${two}`;
 };
-export const getAnswer = (userResponse, name, numberExpression) => {
-  const randomExpressionAnswer = (str) => {
+export const сheckCondition = (userResponse, name, numberExpression) => {
+  const getTwoRandomNumber = (str) => {
     let one;
     let two;
     for (let i = 0; i < str.length; i += 1) {
@@ -26,12 +26,12 @@ export const getAnswer = (userResponse, name, numberExpression) => {
     }
     return false;
   };
-  const answer = randomExpressionAnswer(numberExpression);
+  const answer = getTwoRandomNumber(numberExpression);
   if (+userResponse === answer) {
     console.log('Correct!');
   } else {
     console.log(`${userResponse} is wrong answer ;(. Correct answer was ${answer}.\nLet's try again, ${name}!`);
     return false;
   }
-  return getAnswer;
+  return сheckCondition;
 };

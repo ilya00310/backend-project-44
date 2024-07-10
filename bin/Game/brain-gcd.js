@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import allLogic from '../../src/index.js';
-import getTwoNumber, { getAnswer } from '../../src/b-gcd modul.js';
+import getGeneralLogic from '../../src/index.js';
+import getTwoRandomNumber, { сheckCondition } from '../../src/b-gcd modul.js';
 
 console.log('brain-gcd\n');
-allLogic(getTwoNumber, 'Find the greatest common divisor of given numbers.', getAnswer);
+getGeneralLogic(getTwoRandomNumber, 'Find the greatest common divisor of given numbers.', сheckCondition);

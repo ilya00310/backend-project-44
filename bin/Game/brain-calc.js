@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-import allLogic from '../../src/index.js';
-import myRandomExpression, { conditionIf } from '../../src/b-clac modul.js';
+import getGeneralLogic from '../../src/index.js';
+import getRandomExpression, { сheckCondition } from '../../src/b-clac modul.js';
 
 console.log('brain-calc.js\n');
 
-allLogic(myRandomExpression(), 'What is the result of the expression?', conditionIf);
+getGeneralLogic(getRandomExpression(), 'What is the result of the expression?', сheckCondition);

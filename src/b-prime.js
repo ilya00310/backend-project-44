@@ -1,6 +1,6 @@
 export default () => Math.floor(Math.random() * (100 - 1 + 1)) + 1;
-export const getAnswer = (userResponse, name, numberExpression) => {
-  const randomNumberAnswer = (str) => {
+export const сheckCondition = (userResponse, name, numberExpression) => {
+  const checkNumber = (str) => {
     if (+str === 1) {
       return 'no';
     }
@@ -15,12 +15,12 @@ export const getAnswer = (userResponse, name, numberExpression) => {
     }
     return 'yes';
   };
-  const answer = randomNumberAnswer(numberExpression);
+  const answer = checkNumber(numberExpression);
   if (userResponse === answer) {
     console.log('Correct!');
   } else {
     console.log(`${userResponse} is wrong answer ;(. Correct answer was ${answer}.\nLet's try again, ${name}!`);
     return false;
   }
-  return getAnswer;
+  return сheckCondition;
 };
