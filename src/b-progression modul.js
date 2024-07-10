@@ -28,9 +28,9 @@ export const getAnswer = (userResponse, name, numberExpression) => {
         one = +str[1];
         two = +str[2];
         return one - (two - one);
-      } if (str[str.length - 2] === '..') {
-        one = +str[str.length - 4];
-        two = +str[str.length - 3];
+      } if (str[str.length - 1] === '..') {
+        one = +str[str.length - 3];
+        two = +str[str.length - 2];
         return two + (two - one);
       } if (str[i + 1] === '..') {
         one = +str[i];
