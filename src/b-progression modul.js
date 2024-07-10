@@ -1,9 +1,11 @@
+import getrandomNumberInRange from './utils.js';
+
 export default () => {
-  const lengthOfProgression = Math.floor(Math.random() * (10 - 5 + 1)) + 5;
-  const indicateSkip = Math.floor(Math.random() * (lengthOfProgression - 1 + 1)) + 1;
-  const intervalPass = Math.floor(Math.random() * (10 - 6 + 1)) + 6;
+  const lengthOfProgression = getrandomNumberInRange(5, 10);
+  const indicateSkip = getrandomNumberInRange(1, lengthOfProgression);
+  const intervalPass = getrandomNumberInRange(10, 6);
   let progression = '';
-  let initalNumber = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
+  let initalNumber = getrandomNumberInRange(1, 100);
 
   for (let i = 0; i < lengthOfProgression; i += 1) {
     if (i === indicateSkip - 1) {

@@ -1,6 +1,8 @@
+import getrandomNumberInRange from './utils.js';
+
 export default () => {
-  const one = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
-  const two = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
+  const one = getrandomNumberInRange(1, 100);
+  const two = getrandomNumberInRange(1, 100);
   return `${one} ${two}`;
 };
 export const сheckCondition = (userResponse, name, numberExpression) => {

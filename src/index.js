@@ -9,7 +9,6 @@ export default (formulaExpression, condition, checkForDefault) => {
     const expression = formulaExpression();
     const question = readlineSync.question(`Question: ${expression}\nYour answer: `);
     if (checkForDefault(question, Name, expression) === false) {
-      console.log();
       return;
     }
   }

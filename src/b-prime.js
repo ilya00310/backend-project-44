@@ -1,4 +1,6 @@
-export default () => Math.floor(Math.random() * (100 - 1 + 1)) + 1;
+import getrandomNumberInRange from './utils.js';
+
+export default () => getrandomNumberInRange(1, 100);
 export const сheckCondition = (userResponse, name, numberExpression) => {
   const checkNumber = (str) => {
     if (+str === 1) {

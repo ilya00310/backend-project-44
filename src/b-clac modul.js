@@ -1,8 +1,10 @@
+import getrandomNumberInRange from './utils.js';
+
 export default () => {
   const getrandomExpression = () => {
-    const one = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
-    const two = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
-    const sign = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+    const one = getrandomNumberInRange(1, 100);
+    const two = getrandomNumberInRange(1, 100);
+    const sign = getrandomNumberInRange(1, 3);
     if (sign === 1) {
       return `${one} + ${two}`;
     } if (sign === 2) {
