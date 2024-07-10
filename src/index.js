@@ -8,6 +8,7 @@ export default (formulaExpression, condition, checkForDefault) => {
   for (let i = 0; i < 3; i += 1) {
     const expression = formulaExpression();
     if (Array.isArray(expression)) {
+      console.log(typeof (expression.join(' ')));
       question = readlineSync.question(`Question: ${expression.join(' ')} \nYour answer: `);
     } else {
       question = readlineSync.question(`Question: ${expression} \nYour answer: `);

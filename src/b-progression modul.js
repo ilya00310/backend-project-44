@@ -10,7 +10,7 @@ export default () => {
   for (let i = 0; i < lengthOfProgression; i += 1) {
     if (i === indicateSkip) {
       initalNumber += intervalPass;
-      progression.push('.. ');
+      progression.push('..');
     } else {
       initalNumber += intervalPass;
       progression.push(initalNumber);
