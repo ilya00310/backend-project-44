@@ -23,20 +23,19 @@ export const getAnswer = (userResponse, name, numberExpression) => {
   const answerProgression = (str) => {
     let one;
     let two;
-    const strSplit = str.split(' ');
     for (let i = 0; i < str.length; i += 1) {
-      if (strSplit[0] === '..') {
-        one = +strSplit[1];
-        two = +strSplit[2];
+      if (str[0] === '..') {
+        one = +str[1];
+        two = +str[2];
         return one - (two - one);
-      } if (strSplit[strSplit.length - 2] === '..') {
-        one = +strSplit[strSplit.length - 4];
-        two = +strSplit[strSplit.length - 3];
+      } if (str[str.length - 2] === '..') {
+        one = +str[str.length - 4];
+        two = +str[str.length - 3];
         return two + (two - one);
-      } if (strSplit[i + 1] === '..') {
-        one = +strSplit[i];
-      } if (strSplit[i - 1] === '..') {
-        two = +strSplit[i];
+      } if (str[i + 1] === '..') {
+        one = +str[i];
+      } if (str[i - 1] === '..') {
+        two = +str[i];
         return one + (two - one) / 2;
       }
     }
