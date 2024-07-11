@@ -1,4 +1,4 @@
-import getrandomNumberInRange from './utils.js';
+import getrandomNumberInRange, { reactOnCorrectAnswer, reactOnWrongAnswer } from './utils.js';
 
 export default () => {
   const lengthOfProgression = getrandomNumberInRange(5, 10);
@@ -20,32 +20,32 @@ export default () => {
   return progression;
 };
 export const getAnswer = (userResponse, name, numberExpression) => {
-  const answerProgression = (str) => {
-    let one;
-    let two;
+  const calculateValueTwoDots = (str) => {
+    let smallerNumber;
+    let largerNumber;
     for (let i = 0; i < str.length; i += 1) {
       if (str[0] === '..') {
-        one = +str[1];
-        two = +str[2];
-        return one - (two - one);
+        smallerNumber = +str[1];
+        largerNumber = +str[2];
+        return smallerNumber - (largerNumber - smallerNumber);
       } if (str[str.length - 1] === '..') {
-        one = +str[str.length - 3];
-        two = +str[str.length - 2];
-        return two + (two - one);
+        smallerNumber = +str[str.length - 3];
+        largerNumber = +str[str.length - 2];
+        return largerNumber + (largerNumber - smallerNumber);
       } if (str[i + 1] === '..') {
-        one = +str[i];
+        smallerNumber = +str[i];
       } if (str[i - 1] === '..') {
-        two = +str[i];
-        return one + (two - one) / 2;
+        largerNumber = +str[i];
+        return smallerNumber + (largerNumber - smallerNumber) / 2;
       }
     }
     return false;
   };
-  const answer = answerProgression(numberExpression);
+  const answer = calculateValueTwoDots(numberExpression);
   if (+userResponse === answer) {
     console.log('Corrct!');
   } else {
-    console.log(`${userResponse} is wrong answer ;(. Correct answer was ${answer}.\nLet's try again, ${name}!`);
+    reactOnWrongAnswer(userResponse, answer, name);
     return false;
   }
   return getAnswer;

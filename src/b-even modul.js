@@ -1,4 +1,4 @@
-import getrandomNumberInRange from './utils.js';
+import getrandomNumberInRange, { reactOnCorrectAnswer, reactOnWrongAnswer } from './utils.js';
 
 export default () => getrandomNumberInRange(1, 100);
 export const сheckCondition = (userResponse, name, number) => {
@@ -6,9 +6,9 @@ export const сheckCondition = (userResponse, name, number) => {
   const expectedAnswer = isEven ? 'yes' : 'no';
   console.log(userResponse, expectedAnswer, isEven, number);
   if (userResponse === expectedAnswer) {
-    return console.log('Correct!');
+    return reactOnCorrectAnswer();
   }
 
-  console.log(`${userResponse} is wrong answer ;(. Correct answer was no.\nLet's try again, ${name}!`);
+  reactOnWrongAnswer(userResponse, expectedAnswer, name);
   return false;
 };
