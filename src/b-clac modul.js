@@ -17,29 +17,25 @@ export default () => {
   return getrandomExpression;
 };
 
-export const сheckCondition = (userResponse, name, numberExpression) => {
-  const getAnswerExpression = (str) => {
-    for (let i = 0; i < str.length; i += 1) {
-      if (str[i - 1] === ' ' && str[i + 1] === ' ') {
-        const one = +str.slice(0, i - 1);
-        const two = +str.slice(i + 1, str.length);
-        if (str[i] === '*') {
-          return one * two;
-        } if (str[i] === '+') {
-          return one + two;
-        } if (str[i] === '-') {
-          return one - two;
-        }
-      }
-    }
-    return false;
-  };
-  const answer = getAnswerExpression(numberExpression);
-  if (answer === +userResponse) {
-    reactOnCorrectAnswer();
-  } else {
-    reactOnWrongAnswer(userResponse, answer, name);
+export const сheckCondition = (userResponse, name, answerExpression) => {
+  if (answerExpression !== +userResponse) {
+    // reactOnWrongAnswer(userResponse, answerExpression, name);
     return false;
   }
   return сheckCondition;
+};
+
+export const getAnswerExpression = (str) => {
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i - 1] === ' ' && str[i + 1] === ' ') {
+      const one = +str.slice(0, i - 1);
+      const two = +str.slice(i + 1, str.length);
+      if (str[i] === '*') {
+        return one * two;
+      } if (str[i] === '+') {
+        return one + two;
+      }
+      return one - two;
+    }
+  }
 };
