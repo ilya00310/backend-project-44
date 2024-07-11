@@ -43,7 +43,7 @@ export const getAnswer = (userResponse, name, numberExpression) => {
   };
   const answer = calculateValueTwoDots(numberExpression);
   if (+userResponse === answer) {
-    console.log('Corrct!');
+    reactOnCorrectAnswer();
   } else {
     reactOnWrongAnswer(userResponse, answer, name);
     return false;
