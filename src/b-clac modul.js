@@ -17,11 +17,11 @@ export default () => {
       one = +questionAndAnswer[0].slice(0, i - 1);
       two = +questionAndAnswer[0].slice(i + 1, questionAndAnswer[0].length);
       if (questionAndAnswer[0][i] === '*') {
-        questionAndAnswer.push(one * two);
+        questionAndAnswer.push(`${one * two}`);
       } if (questionAndAnswer[0][i] === '+') {
-        questionAndAnswer.push(one + two);
+        questionAndAnswer.push(`${one + two}`);
       } if (questionAndAnswer[0][i] === '-') {
-        questionAndAnswer.push(one - two);
+        questionAndAnswer.push(`${one - two}`);
       }
     }
   }

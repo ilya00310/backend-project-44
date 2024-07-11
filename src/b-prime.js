@@ -1,7 +1,8 @@
-import getrandomNumberInRange, { reactOnCorrectAnswer, reactOnWrongAnswer } from './utils.js';
+import getrandomNumberInRange from './utils.js';
 
-export default () => getrandomNumberInRange(1, 100);
-export const сheckCondition = (userResponse, name, numberExpression) => {
+export default () => {
+  const questionAndAnswer = [];
+  questionAndAnswer.push(getrandomNumberInRange(1, 100));
   const checkNumber = (str) => {
     if (+str === 1) {
       return 'no';
@@ -17,12 +18,6 @@ export const сheckCondition = (userResponse, name, numberExpression) => {
     }
     return 'yes';
   };
-  const answer = checkNumber(numberExpression);
-  if (userResponse === answer) {
-    reactOnCorrectAnswer();
-  } else {
-    reactOnWrongAnswer(userResponse, answer, name);
-    return false;
-  }
-  return сheckCondition;
+  questionAndAnswer.push(checkNumber(`${questionAndAnswer[0]}`));
+  return questionAndAnswer;
 };

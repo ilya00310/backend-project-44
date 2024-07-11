@@ -1,28 +1,21 @@
-import getrandomNumberInRange, { reactOnCorrectAnswer, reactOnWrongAnswer } from './utils.js';
+import getrandomNumberInRange from './utils.js';
 
 export default () => {
+  const questionAndAnswer = [];
   const one = getrandomNumberInRange(1, 100);
   const two = getrandomNumberInRange(1, 100);
-  const bothNumber = [one, two];
-  return bothNumber;
-};
-export const сheckCondition = (userResponse, name, numberExpression) => {
-  const getTwoRandomNumber = (str) => {
-    let one = str[0];
-    let two = str[1];
-    if (one < two) {
+  questionAndAnswer.push([one, two].join(' '));
+  const getTwoRandomNumber = (arr) => {
+    let onePartArray = arr[0];
+    let twoPartArray = arr[1];
+    if (onePartArray < twoPartArray) {
       const temporaryStorage = one;
-      one = two;
-      two = temporaryStorage;
+      onePartArray = twoPartArray;
+      twoPartArray = temporaryStorage;
     }
-    return two === 0 ? one : getTwoRandomNumber([two, one % two]);
+    return twoPartArray === 0
+      ? onePartArray : getTwoRandomNumber([twoPartArray, onePartArray % twoPartArray]);
   };
-  const answer = getTwoRandomNumber(numberExpression);
-  if (+userResponse === answer) {
-    reactOnCorrectAnswer();
-  } else {
-    reactOnWrongAnswer(userResponse, answer, name);
-    return false;
-  }
-  return сheckCondition;
+  questionAndAnswer.push(`${getTwoRandomNumber([one, two])}`);
+  return questionAndAnswer;
 };

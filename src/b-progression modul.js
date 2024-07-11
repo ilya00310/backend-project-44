@@ -1,6 +1,7 @@
-import getrandomNumberInRange, { reactOnCorrectAnswer, reactOnWrongAnswer } from './utils.js';
+import getrandomNumberInRange from './utils.js';
 
 export default () => {
+  const questionAndAnswer = [];
   const lengthOfProgression = getrandomNumberInRange(5, 10);
   const indicateSkip = getrandomNumberInRange(1, lengthOfProgression) - 1;
   const intervalPass = getrandomNumberInRange(10, 6);
@@ -16,10 +17,7 @@ export default () => {
       progression.push(initalNumber);
     }
   }
-
-  return progression;
-};
-export const getAnswer = (userResponse, name, numberExpression) => {
+  questionAndAnswer.push(progression.join(' '));
   const calculateValueTwoDots = (str) => {
     let smallerNumber;
     let largerNumber;
@@ -41,12 +39,7 @@ export const getAnswer = (userResponse, name, numberExpression) => {
     }
     return false;
   };
-  const answer = calculateValueTwoDots(numberExpression);
-  if (+userResponse === answer) {
-    reactOnCorrectAnswer();
-  } else {
-    reactOnWrongAnswer(userResponse, answer, name);
-    return false;
-  }
-  return getAnswer;
+
+  questionAndAnswer.push(String(calculateValueTwoDots(progression)));
+  return questionAndAnswer;
 };
