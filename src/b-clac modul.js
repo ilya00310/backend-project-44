@@ -1,29 +1,38 @@
-import getrandomNumberInRange from './utils.js';
+import getrandomOperand from './utils.js';
 
-export default () => {
-  const questionAndAnswer = [];
-  let one = getrandomNumberInRange(1, 100);
-  let two = getrandomNumberInRange(1, 100);
-  const sign = getrandomNumberInRange(1, 3);
-  if (sign === 1) {
-    questionAndAnswer.push(`${one} + ${two}`);
-  } if (sign === 2) {
-    questionAndAnswer.push(`${one} - ${two}`);
-  } if (sign === 3) {
-    questionAndAnswer.push(`${one} * ${two}`);
-  }
-  for (let i = 0; i < questionAndAnswer[0].length; i += 1) {
-    if (questionAndAnswer[0][i - 1] === ' ' && questionAndAnswer[0][i + 1] === ' ') {
-      one = +questionAndAnswer[0].slice(0, i - 1);
-      two = +questionAndAnswer[0].slice(i + 1, questionAndAnswer[0].length);
-      if (questionAndAnswer[0][i] === '*') {
-        questionAndAnswer.push(`${one * two}`);
-      } if (questionAndAnswer[0][i] === '+') {
-        questionAndAnswer.push(`${one + two}`);
-      } if (questionAndAnswer[0][i] === '-') {
-        questionAndAnswer.push(`${one - two}`);
+const getAnswer = (one, two, str) => {
+  let answer;
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i - 1] === ' ' && str[i + 1] === ' ') {
+      const oneNumber = +str.slice(0, i - 1);
+      const twoNumber = +str.slice(i + 1, str.length);
+      if (str[i] === '*') {
+        answer = (`${oneNumber * twoNumber}`);
+      } if (str[i] === '+') {
+        answer = (`${oneNumber + twoNumber}`);
+      } if (str[i] === '-') {
+        answer = (`${oneNumber - twoNumber}`);
       }
     }
   }
-  return questionAndAnswer;
+  return answer;
+};
+
+const getOperator = (one, two, sign) => {
+  let question;
+  if (sign === 1) {
+    question = (`${one} + ${two}`);
+  } if (sign === 2) {
+    question = (`${one} - ${two}`);
+  } if (sign === 3) {
+    question = (`${one} * ${two}`);
+  }
+  return question;
+};
+export default () => {
+  const one = getrandomOperand(1, 100);
+  const two = getrandomOperand(1, 100);
+  const sign = getrandomOperand(1, 3);
+  const question = getOperator(one, two, sign);
+  return [question, getAnswer(one, two, question)];
 };

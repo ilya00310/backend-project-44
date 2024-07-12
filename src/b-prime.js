@@ -1,23 +1,20 @@
 import getrandomNumberInRange from './utils.js';
 
+const isPrime = (num) => {
+  if (+num === 1) {
+    return false;
+  }
+  for (let i = 2; i < Math.sqrt(num); i += 1) {
+    if (num % i === 0) {
+      return true;
+    }
+  }
+  return false;
+};
+
 export default () => {
   const questionAndAnswer = [];
-  questionAndAnswer.push(getrandomNumberInRange(1, 100));
-  const checkNumber = (str) => {
-    if (+str === 1) {
-      return 'no';
-    }
-    let score = 0;
-    for (let i = +str; i > 0; i -= 1) {
-      if (str % i === 0) {
-        score += 1;
-      }
-      if (score > 2) {
-        return 'no';
-      }
-    }
-    return 'yes';
-  };
-  questionAndAnswer.push(checkNumber(`${questionAndAnswer[0]}`));
-  return questionAndAnswer;
+  const question = (getrandomNumberInRange(1, 100));
+  const answer = (isPrime(`${questionAndAnswer[0]}`)) ? 'yes' : 'no';
+  return [question, answer];
 };
