@@ -14,6 +14,6 @@ const isPrime = (num) => {
 
 export default () => {
   const question = (getrandomNumberInRange(1, 100));
-  const answer = (isPrime(`${question}`)) ? 'yes' : 'no';
+  const answer = (isPrime(question)) ? 'yes' : 'no';
   return [question, answer];
 };
