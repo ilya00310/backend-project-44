@@ -21,24 +21,26 @@ const calculateValueTwoDots = (str) => {
   }
   return false;
 };
+const formProgression = (lengthOfProgression, indicateSkipAndInterval) => {
+  const progression = [];
+  let oneNumber = getrandomOptionsForProgression(1, 100);
+  for (let i = 0; i < lengthOfProgression; i += 1) {
+    if (i === indicateSkipAndInterval) {
+      oneNumber += indicateSkipAndInterval;
+      progression.push('..');
+    } else {
+      oneNumber += indicateSkipAndInterval;
+      progression.push(oneNumber);
+    }
+  }
+  return progression;
+};
 
 export default () => {
   const lengthOfProgression = getrandomOptionsForProgression(5, 10);
-  const indicateTwoDotesAndInterval = getrandomOptionsForProgression(1, lengthOfProgression) - 1;
-  const progression = [];
-  let initalNumber = getrandomOptionsForProgression(1, 100);
-
-  for (let i = 0; i < lengthOfProgression; i += 1) {
-    if (i === indicateTwoDotesAndInterval) {
-      initalNumber += indicateTwoDotesAndInterval;
-      progression.push('..');
-    } else {
-      initalNumber += indicateTwoDotesAndInterval;
-      progression.push(initalNumber);
-    }
-  }
-  const question = (progression.join(' '));
-
+  const indicateSkipAndInterval = getrandomOptionsForProgression(1, lengthOfProgression) - 1;
+  const progression = (formProgression(lengthOfProgression, indicateSkipAndInterval));
+  const question = progression.join(' ');
   const answer = (String(calculateValueTwoDots(progression)));
   return [question, answer];
 };

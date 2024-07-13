@@ -1,6 +1,6 @@
 import getrandomOperand from './utils.js';
 
-const getAnswer = (one, two, str) => {
+const getAnswer = (str) => {
   let answer;
   for (let i = 0; i < str.length; i += 1) {
     if (str[i - 1] === ' ' && str[i + 1] === ' ') {
@@ -34,5 +34,5 @@ export default () => {
   const two = getrandomOperand(1, 100);
   const sign = getrandomOperand(1, 3);
   const question = getOperator(one, two, sign);
-  return [question, getAnswer(one, two, question)];
+  return [question, getAnswer(question)];
 };
