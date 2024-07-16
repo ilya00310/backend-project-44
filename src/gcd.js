@@ -1,4 +1,4 @@
-import getRandomNumber from './utils.js';
+import { getRandomNumber } from './utils.js';
 
 const getGcdTwoNumber = (one, two) => (two === 0
   ? one : getGcdTwoNumber(two, one % two));

@@ -1,4 +1,4 @@
-import getRandomNumber from './utils.js';
+import { getRandomNumber } from './utils.js';
 
 const getAnswer = (one, two, operator) => {
   switch (operator) {
