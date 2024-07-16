@@ -1,38 +1,32 @@
 import getrandomOperand from './utils.js';
 
-const getAnswer = (str) => {
+const getAnswer = (one, two, numberForDefinitionSign) => {
   let answer;
-  for (let i = 0; i < str.length; i += 1) {
-    if (str[i - 1] === ' ' && str[i + 1] === ' ') {
-      const oneNumber = +str.slice(0, i - 1);
-      const twoNumber = +str.slice(i + 1, str.length);
-      if (str[i] === '*') {
-        answer = (`${oneNumber * twoNumber}`);
-      } if (str[i] === '+') {
-        answer = (`${oneNumber + twoNumber}`);
-      } if (str[i] === '-') {
-        answer = (`${oneNumber - twoNumber}`);
-      }
-    }
+  if (numberForDefinitionSign === 1) {
+    answer = (`${one + two}`);
+  } if (numberForDefinitionSign === 2) {
+    answer = (`${one - two}`);
+  } if (numberForDefinitionSign === 3) {
+    answer = (`${one + two}`);
   }
   return answer;
 };
 
-const getOperator = (one, two, sign) => {
-  let question;
-  if (sign === 1) {
-    question = (`${one} + ${two}`);
-  } if (sign === 2) {
-    question = (`${one} - ${two}`);
-  } if (sign === 3) {
-    question = (`${one} * ${two}`);
+const getExpression = (one, two, numberForDefinitionSign) => {
+  let expression;
+  if (numberForDefinitionSign === 1) {
+    expression = (`${one} + ${two}`);
+  } if (numberForDefinitionSign === 2) {
+    expression = (`${one} - ${two}`);
+  } if (numberForDefinitionSign === 3) {
+    expression = (`${one} * ${two}`);
   }
-  return question;
+  return expression;
 };
 export default () => {
   const one = getrandomOperand(1, 100);
   const two = getrandomOperand(1, 100);
-  const sign = getrandomOperand(1, 3);
-  const question = getOperator(one, two, sign);
-  return [question, getAnswer(question)];
+  const numberForDefinitionSign = getrandomOperand(1, 3);
+  const expression = getExpression(one, two, numberForDefinitionSign);
+  return [expression, getAnswer(one, two, numberForDefinitionSign)];
 };
