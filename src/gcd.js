@@ -4,9 +4,9 @@ const getGcdTwoNumber = (one, two) => (two === 0
   ? one : getGcdTwoNumber(two, one % two));
 
 export default () => {
-  const oneRundomNumber = getRandomNumber(1, 100);
-  const twoRundomNumber = getRandomNumber(1, 100);
-  const question = `${oneRundomNumber} ${twoRundomNumber}`;
-  const answer = String(getGcdTwoNumber(oneRundomNumber, twoRundomNumber));
+  const oneRandomNumber = getRandomNumber(1, 100);
+  const twoRandomNumber = getRandomNumber(1, 100);
+  const question = `${oneRandomNumber} ${twoRandomNumber}`;
+  const answer = String(getGcdTwoNumber(oneRandomNumber, twoRandomNumber));
   return [question, answer];
 };
