@@ -2,12 +2,15 @@ import getrandomOperand from './utils.js';
 
 const getAnswer = (one, two, operator) => {
   let answer;
-  if (operator === '+') {
-    answer = (`${one + two}`);
-  } if (operator === '-') {
-    answer = (`${one - two}`);
-  } if (operator === '*') {
-    answer = (`${one * two}`);
+  switch (operator) {
+    case '+':
+      answer = (`${one + two}`);
+      break;
+    case '-':
+      answer = (`${one - two}`);
+      break;
+    default:
+      answer = (`${one * two}`);
   }
   return answer;
 };
