@@ -1,45 +1,24 @@
 import getrandomOptionsForProgression from './utils.js';
 
-const calculateValueTwoDots = (str) => {
-  let smallerNumber;
-  let largerNumber;
-  for (let i = 0; i < str.length; i += 1) {
-    if (str[0] === '..') {
-      smallerNumber = +str[1];
-      largerNumber = +str[2];
-      return smallerNumber - (largerNumber - smallerNumber);
-    } if (str[str.length - 1] === '..') {
-      smallerNumber = +str[str.length - 3];
-      largerNumber = +str[str.length - 2];
-      return largerNumber + (largerNumber - smallerNumber);
-    } if (str[i + 1] === '..') {
-      smallerNumber = +str[i];
-    } if (str[i - 1] === '..') {
-      largerNumber = +str[i];
-      return smallerNumber + (largerNumber - smallerNumber) / 2;
-    }
-  }
-  return false;
-};
-const formProgression = (indicateSkipAndInterval) => {
-  const progression = [];
-  let oneNumber = getrandomOptionsForProgression(1, 100);
+const calculatehideNumber = (hideNum, step, oneNumber) => oneNumber + step * hideNum;
+
+const formProgression = (one, stepSequenc) => {
+  const progression = [one];
+  let oneStep = one;
   for (let i = 0; i <= 10; i += 1) {
-    if (i === indicateSkipAndInterval) {
-      oneNumber += indicateSkipAndInterval;
-      progression.push('..');
-    } else {
-      oneNumber += indicateSkipAndInterval;
-      progression.push(oneNumber);
-    }
+    oneStep += stepSequenc;
+    progression.push(oneStep);
   }
   return progression;
 };
 
 export default () => {
-  const indicateSkipAndInterval = getrandomOptionsForProgression(1, 10) - 1;
-  const progression = (formProgression(indicateSkipAndInterval));
+  const oneNumber = getrandomOptionsForProgression(1, 100);
+  const stepSequenc = getrandomOptionsForProgression(1, 10);
+  const progression = formProgression(oneNumber, stepSequenc);
+  const numberForHide = getrandomOptionsForProgression(0, 9);
+  progression[numberForHide] = '..';
   const question = progression.join(' ');
-  const answer = (String(calculateValueTwoDots(progression)));
+  const answer = (String(calculatehideNumber(numberForHide, stepSequenc, oneNumber)));
   return [question, answer];
 };
