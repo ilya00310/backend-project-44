@@ -1,4 +1,4 @@
-import getrandomOperand from './utils.js';
+import getRandomNumber from './utils.js';
 
 const getAnswer = (one, two, operator) => {
   switch (operator) {
@@ -12,9 +12,9 @@ const getAnswer = (one, two, operator) => {
   }
 };
 export default () => {
-  const one = getrandomOperand(1, 100);
-  const two = getrandomOperand(1, 100);
+  const firstOperand = getRandomNumber(1, 100);
+  const secondOperand = getRandomNumber(1, 100);
   const operator = ['+', '-', '*'];
-  const randomOperator = operator[getrandomOperand(0, 2)];
-  return [`${one} ${randomOperator} ${two}`, getAnswer(one, two, randomOperator)];
+  const randomOperator = operator[getRandomNumber(0, 2)];
+  return [`${firstOperand} ${randomOperator} ${secondOperand}`, getAnswer(firstOperand, secondOperand, randomOperator)];
 };

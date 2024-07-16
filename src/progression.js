@@ -1,4 +1,4 @@
-import getrandomOptionsForProgression from './utils.js';
+import getRandomNumber from './utils.js';
 
 const calculatehideNumber = (hideNum, step, oneNumber) => oneNumber + step * hideNum;
 
@@ -13,12 +13,12 @@ const formProgression = (one, stepSequenc) => {
 };
 
 export default () => {
-  const oneNumber = getrandomOptionsForProgression(1, 100);
-  const stepSequenc = getrandomOptionsForProgression(1, 10);
-  const progression = formProgression(oneNumber, stepSequenc);
-  const numberForHide = getrandomOptionsForProgression(0, 9);
-  progression[numberForHide] = '..';
+  const firstNumberProg = getRandomNumber(1, 100);
+  const stepSequencProg = getRandomNumber(1, 10);
+  const progression = formProgression(firstNumberProg, stepSequencProg);
+  const numberForHideProgr = getRandomNumber(0, 9);
+  progression[numberForHideProgr] = '..';
   const question = progression.join(' ');
-  const answer = (String(calculatehideNumber(numberForHide, stepSequenc, oneNumber)));
+  const answer = String(calculatehideNumber(numberForHideProgr, stepSequencProg, firstNumberProg));
   return [question, answer];
 };

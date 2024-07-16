@@ -1,4 +1,4 @@
-import getrandomNumberInRange from './utils.js';
+import getRandomNumber from './utils.js';
 
 const isPrime = (num) => {
   if (num === 1) {
@@ -13,7 +13,7 @@ const isPrime = (num) => {
 };
 
 export default () => {
-  const question = (getrandomNumberInRange(1, 100));
-  const answer = isPrime(question) ? 'yes' : 'no';
-  return [question, answer];
+  const randomNumber = getRandomNumber(1, 100);
+  const answer = isPrime(randomNumber) ? 'yes' : 'no';
+  return [randomNumber, answer];
 };
