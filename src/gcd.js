@@ -1,11 +1,7 @@
 import getrandomNumberforGcd from './utils.js';
 
-const getGcdTwoNumber = (one, two) => {
-  const onePartArray = one;
-  const twoPartArray = two;
-  return twoPartArray === 0
-    ? onePartArray : getGcdTwoNumber(twoPartArray, onePartArray % twoPartArray);
-};
+const getGcdTwoNumber = (one, two) => (two === 0
+  ? one : getGcdTwoNumber(two, one % two));
 
 export default () => {
   const one = getrandomNumberforGcd(1, 100);
