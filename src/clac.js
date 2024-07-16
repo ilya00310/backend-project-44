@@ -1,20 +1,16 @@
 import getrandomOperand from './utils.js';
 
 const getAnswer = (one, two, operator) => {
-  let answer;
   switch (operator) {
     case '+':
-      answer = (`${one + two}`);
-      break;
+      return (`${one + two}`);
     case '-':
-      answer = (`${one - two}`);
-      break;
-    default:
-      answer = (`${one * two}`);
+      return (`${one - two}`);
+    case '*':
+      return (`${one * two}`);
+    default: throw new Error();
   }
-  return answer;
 };
-
 export default () => {
   const one = getrandomOperand(1, 100);
   const two = getrandomOperand(1, 100);
