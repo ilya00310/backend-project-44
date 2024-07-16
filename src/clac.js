@@ -7,7 +7,7 @@ const getAnswer = (one, two, numberForDefinitionSign) => {
   } if (numberForDefinitionSign === 2) {
     answer = (`${one - two}`);
   } if (numberForDefinitionSign === 3) {
-    answer = (`${one + two}`);
+    answer = (`${one * two}`);
   }
   return answer;
 };
